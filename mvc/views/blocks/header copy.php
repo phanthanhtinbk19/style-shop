@@ -28,9 +28,9 @@ foreach ($cart as $item) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- ********************** -->
 
-
-
+    <!--===============================================================================================-->
     <link rel="icon" type="image/png"
         href="http://localhost/style-shop-2022/public/http://localhost/style-shop-2022/public/images/icons/favicon.png" />
     <!--===============================================================================================-->
@@ -91,6 +91,11 @@ foreach ($cart as $item) {
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
         integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
         crossorigin="anonymous" />
+
+
+
+    <!--===============================================================================================-->
+
 </head>
 
 <body class="animsition">
@@ -109,7 +114,7 @@ foreach ($cart as $item) {
                     <!-- Menu desktop -->
                     <div class="menu-desktop">
                         <ul class="main-menu">
-                            <li>
+                            <li class="active-menu">
                                 <a href="http://localhost/style-shop-2022/home">Home</a>
                             </li>
 
@@ -230,28 +235,28 @@ foreach ($cart as $item) {
 
 
         <!-- Menu Mobile -->
-        <div class="menu-mobile-tin" style="height:0px; display:none">
+        <div class="menu-mobile">
             <ul class="main-menu-m">
                 <li>
-                    <a href="http://localhost/style-shop-2022/home">Home</a>
+                    <a href="index.html">Home</a>
                     <span class="arrow-main-menu-m">
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </span>
                 </li>
 
                 <li>
-                    <a href="http://localhost/style-shop-2022/home/shop">Shop</a>
+                    <a href="product.html">Shop</a>
                 </li>
                 <li>
-                    <a href="http://localhost/style-shop-2022/home/blog">Blog</a>
-                </li>
-
-                <li>
-                    <a href="http://localhost/style-shop-2022/home/about">About</a>
+                    <a href="blog.html">Blog</a>
                 </li>
 
                 <li>
-                    <a href="http://localhost/style-shop-2022/home/comtact">Contact</a>
+                    <a href="about.html">About</a>
+                </li>
+
+                <li>
+                    <a href="contact.html">Contact</a>
                 </li>
             </ul>
         </div>
@@ -434,7 +439,6 @@ foreach ($cart as $item) {
         $("#search__name").keyup(function() {
             $(".search__box").show();
             var search_name = $("#search__name").val();
-            console.log(search_name);
             if ($("#search__name").val() != '') {
                 $.ajax({
                     url: "http://localhost/style-shop-2022/Home/search",
@@ -459,7 +463,7 @@ foreach ($cart as $item) {
 
     <script>
     $(".main-menu").on('click', 'li', function() {
-
+        console.log("oke");
         $(this).addClass("active-menu").siblings().removeClass("active-menu");
     });
 
@@ -467,18 +471,6 @@ foreach ($cart as $item) {
 
         $(".search__box").hide();
     })
-    $(".btn-show-menu-mobile").on("click", function() {
-        $(this).toggleClass("is-active");
-        // $(".menu-mobile-tin").slideToggle();
-
-        if ($(".btn-show-menu-mobile").hasClass("is-active")) {
-            $(".menu-mobile-tin").css("display", "block");
-            $(".menu-mobile-tin").css("height", "100%");
-        } else {
-            $(".menu-mobile-tin").css("display", "none");
-            $(".menu-mobile-tin").css("height", "0%");
-        }
-    });
     </script>
     <!--===============================================================================================-->
     <script src="http://localhost/style-shop-2022/public/js/main.js"></script>

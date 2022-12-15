@@ -230,9 +230,10 @@ class Home extends Controller
             $search_name = $_POST["search_name"];
 
             $result = $this->productModel->searchProduct($search_name);
-            $output = '<i style="right: 10px;position: absolute;top: 4px;z-index:9999" class="fas fa-times"></i>';
+        
+            $output = '';
+            if(count($result) > 0) {
             foreach ($result as $rows) {
-
                 $output .= '
                 <li style="margin: 5px 0;" class="list-group">
                     <div style="margin: 0 auto;" class="row">
@@ -253,9 +254,12 @@ class Home extends Controller
                 </li>
                 ';
             }
-            if ($output == '<i style="right: 10px;position: absolute;top: 4px;z-index:9999" class="fas fa-times"></i>')
-                $output .= '<li style="margin: 5px 0;" class="list-group">
-                            Không tìm thấy sản phẩm</li>';
+        }
+           
+               else{
+                $output .= '<li style="margin: 5px 0; text-align: center" class="list-group">
+                Không tìm thấy sản phẩm</li>';
+               }
             echo $output;
         }
     }
